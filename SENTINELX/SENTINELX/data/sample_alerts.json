@@ -1,0 +1,134 @@
+[
+  {
+    "alert_id": "ALT-2401",
+    "timestamp": "2026-09-13T08:41:00Z",
+    "event_type": "multiple_failed_logins",
+    "username": "maya.patel",
+    "source_ip": "185.203.118.44",
+    "asset": "LAPTOP-MP-07",
+    "severity": "HIGH",
+    "status": "NEW",
+    "description": "15 failed login attempts in 4 minutes against the student research account."
+  },
+  {
+    "alert_id": "ALT-2402",
+    "timestamp": "2026-09-13T08:47:00Z",
+    "event_type": "successful_unusual_login",
+    "username": "maya.patel",
+    "source_ip": "185.203.118.44",
+    "asset": "LAPTOP-MP-07",
+    "severity": "CRITICAL",
+    "status": "NEW",
+    "description": "Successful VPN login from a source IP not seen in the user's 30-day baseline."
+  },
+  {
+    "alert_id": "ALT-2403",
+    "timestamp": "2026-09-13T08:53:00Z",
+    "event_type": "privilege_escalation",
+    "username": "maya.patel",
+    "source_ip": "185.203.118.44",
+    "asset": "LAPTOP-MP-07",
+    "severity": "CRITICAL",
+    "status": "NEW",
+    "description": "User token added to the local administrators group after the new session."
+  },
+  {
+    "alert_id": "ALT-2404",
+    "timestamp": "2026-09-13T08:57:00Z",
+    "event_type": "malware_detection",
+    "username": "maya.patel",
+    "source_ip": "185.203.118.44",
+    "asset": "LAPTOP-MP-07",
+    "severity": "CRITICAL",
+    "status": "NEW",
+    "description": "Synthetic EDR signature flagged a test payload in the Downloads directory."
+  },
+  {
+    "alert_id": "ALT-2405",
+    "timestamp": "2026-09-13T09:02:00Z",
+    "event_type": "suspicious_process",
+    "username": "maya.patel",
+    "source_ip": "185.203.118.44",
+    "asset": "LAPTOP-MP-07",
+    "severity": "HIGH",
+    "status": "NEW",
+    "description": "PowerShell spawned an unsigned process with an encoded command line."
+  },
+  {
+    "alert_id": "ALT-2406",
+    "timestamp": "2026-09-13T09:06:00Z",
+    "event_type": "unusual_network_activity",
+    "username": "maya.patel",
+    "source_ip": "185.203.118.44",
+    "asset": "LAPTOP-MP-07",
+    "severity": "HIGH",
+    "status": "NEW",
+    "description": "Endpoint attempted outbound connections to a never-before-seen hosting ASN."
+  },
+  {
+    "alert_id": "ALT-2407",
+    "timestamp": "2026-09-13T09:11:00Z",
+    "event_type": "sensitive_resource_access",
+    "username": "maya.patel",
+    "source_ip": "185.203.118.44",
+    "asset": "LAPTOP-MP-07",
+    "severity": "CRITICAL",
+    "status": "NEW",
+    "description": "Restricted research grant share accessed outside the user's normal hours."
+  },
+  {
+    "alert_id": "ALT-2410",
+    "timestamp": "2026-09-13T09:24:00Z",
+    "event_type": "multiple_failed_logins",
+    "username": "liam.chen",
+    "source_ip": "10.14.8.21",
+    "asset": "LAB-WS-03",
+    "severity": "MEDIUM",
+    "status": "NEW",
+    "description": "Six failed logins during a lab shift change; no successful session observed."
+  },
+  {
+    "alert_id": "ALT-2411",
+    "timestamp": "2026-09-13T09:31:00Z",
+    "event_type": "suspicious_process",
+    "username": "svc.backup",
+    "source_ip": "10.14.2.12",
+    "asset": "BACKUP-01",
+    "severity": "MEDIUM",
+    "status": "NEW",
+    "description": "A scheduled backup process launched outside its maintenance window."
+  },
+  {
+    "alert_id": "ALT-2412",
+    "timestamp": "2026-09-13T09:35:00Z",
+    "event_type": "unusual_network_activity",
+    "username": "research.bot",
+    "source_ip": "10.14.6.40",
+    "asset": "JUPYTER-02",
+    "severity": "LOW",
+    "status": "NEW",
+    "description": "Notebook service contacted a new approved mirror for package metadata."
+  },
+  {
+    "alert_id": "ALT-2413",
+    "timestamp": "2026-09-13T09:42:00Z",
+    "event_type": "sensitive_resource_access",
+    "username": "prof.wilson",
+    "source_ip": "10.14.3.18",
+    "asset": "FACULTY-WS-11",
+    "severity": "LOW",
+    "status": "NEW",
+    "description": "Faculty user opened a protected directory during an approved review window."
+  },
+  {
+    "alert_id": "ALT-2414",
+    "timestamp": "2026-09-13T09:45:00Z",
+    "event_type": "successful_unusual_login",
+    "username": "nora.singh",
+    "source_ip": "10.14.9.33",
+    "asset": "LIBRARY-WS-04",
+    "severity": "LOW",
+    "status": "NEW",
+    "description": "Successful kiosk session from a new internal subnet; no follow-on indicators observed."
+  }
+]

@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="SENTINELX autonomous SOC investigation and response prototype">
+  <title>SENTINELX | Autonomous SOC</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar">
+      <div class="brand">
+        <div class="brand-mark"><span></span><span></span><span></span></div>
+        <div><strong>SENTINEL<span>X</span></strong><small>AUTONOMOUS SOC</small></div>
+      </div>
+      <div class="workspace-switch"><span class="status-dot"></span><div><small>WORKSPACE</small><b>University SOC</b></div><span class="chevron">⌄</span></div>
+      <nav class="nav-list" aria-label="Main navigation">
+        <p class="nav-label">OPERATIONS</p>
+        <button class="nav-item active" data-view="dashboard"><span class="nav-icon">◈</span>Dashboard</button>
+        <button class="nav-item" data-view="alerts"><span class="nav-icon">⌁</span>Alerts <em id="nav-alert-count">12</em></button>
+        <button class="nav-item" data-view="investigations"><span class="nav-icon">◎</span>Investigations</button>
+        <button class="nav-item" data-view="evidence"><span class="nav-icon">▣</span>Evidence</button>
+        <button class="nav-item" data-view="incidents"><span class="nav-icon">◫</span>Incidents</button>
+        <p class="nav-label nav-gap">RESPONSE</p>
+        <button class="nav-item" data-view="response"><span class="nav-icon">↯</span>Response Center</button>
+        <button class="nav-item" data-view="reports"><span class="nav-icon">▤</span>Reports</button>
+      </nav>
+      <div class="sidebar-footer"><div class="agent-orbit"><span></span></div><div><b>Agent online</b><small>Local rule engine · v1.0</small></div><button class="icon-button" title="Agent details">⋯</button></div>
+    </aside>
+    <main class="main-area">
+      <header class="topbar">
+        <div class="crumb"><span class="crumb-muted">SENTINELX</span><span>/</span><span id="page-label">Dashboard</span></div>
+        <div class="top-actions"><div class="system-state"><span class="status-dot"></span>All systems nominal</div><button class="icon-button" title="Notifications">♢<i></i></button><button class="avatar">AP</button></div>
+      </header>
+      <div class="content-wrap">
+        <section class="view active" id="view-dashboard">
+          <div class="page-intro"><div><p class="eyebrow">SUNDAY, 13 SEP 2026 · 09:47 UTC</p><h1>Good morning, Analyst.</h1><p class="subcopy">Your autonomous investigation layer is watching the university environment.</p></div><button class="primary-button" id="refresh-btn"><span>↻</span> Refresh telemetry</button></div>
+          <div class="kpi-grid">
+            <article class="kpi-card"><div class="kpi-top"><span>Total alerts</span><span class="trend up">↗ 8.4%</span></div><strong id="total-alerts">12</strong><small>vs. previous 24 hours</small><div class="mini-bars blue"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div></article>
+            <article class="kpi-card accent-red"><div class="kpi-top"><span>Critical alerts</span><span class="trend down">↗ 2.1%</span></div><strong id="critical-alerts">4</strong><small>Require immediate triage</small><div class="mini-bars red"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div></article>
+            <article class="kpi-card accent-amber"><div class="kpi-top"><span>Active incidents</span><span class="trend neutral">Live</span></div><strong id="active-incidents">0</strong><small>Across monitored assets</small><div class="mini-bars amber"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div></article>
+            <article class="kpi-card accent-teal"><div class="kpi-top"><span>Investigations</span><span class="trend up">This session</span></div><strong id="investigation-count">0</strong><small>Agent-assisted cases</small><div class="mini-bars teal"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div></article>
+          </div>
+          <div class="workflow-card"><div class="section-heading"><div><p class="eyebrow">AUTONOMOUS PIPELINE</p><h2>Investigation control plane</h2></div><span class="live-pill"><i></i> LIVE SIMULATION</span></div><div class="pipeline"><div class="pipe-step complete"><span>01</span><b>Ingest</b><small>12 alerts</small></div><div class="pipe-line complete"></div><div class="pipe-step complete"><span>02</span><b>Correlate</b><small>7 related</small></div><div class="pipe-line active"></div><div class="pipe-step active"><span>03</span><b>Investigate</b><small id="pipeline-investigate">Ready</small></div><div class="pipe-line"></div><div class="pipe-step"><span>04</span><b>Respond</b><small>Approval gate</small></div><div class="pipe-line"></div><div class="pipe-step"><span>05</span><b>Verify</b><small>Post-check</small></div></div></div>
+          <div class="two-col dashboard-lower"><article class="panel"><div class="section-heading"><div><p class="eyebrow">EVENT STREAM</p><h2>Recent telemetry</h2></div><button class="text-button" data-view-target="alerts">View all <span>→</span></button></div><div id="recent-events" class="event-list"></div></article><article class="panel"><div class="section-heading"><div><p class="eyebrow">RISK DISTRIBUTION</p><h2>Incident posture</h2></div><span class="muted-label">ALL CASES</span></div><div class="risk-chart-wrap"><canvas id="risk-chart"></canvas><div class="chart-center"><strong id="risk-total">0</strong><small>cases</small></div></div><div class="legend-row"><span><i class="legend-dot critical"></i>Critical <b id="risk-critical">0</b></span><span><i class="legend-dot high"></i>High <b id="risk-high">0</b></span><span><i class="legend-dot medium"></i>Medium <b id="risk-medium">0</b></span></div></article></div>
+        </section>
+        <section class="view" id="view-alerts"><div class="page-intro"><div><p class="eyebrow">ALERT MANAGEMENT</p><h1>Security alerts</h1><p class="subcopy">Synthetic telemetry ready for analyst triage and correlation.</p></div><button class="primary-button" id="load-alerts-btn">↻ Load alerts</button></div><div class="filter-bar"><div class="search-box"><span>⌕</span><input id="alert-search" placeholder="Search alert ID, user, asset..."></div><button class="filter-button">All severities <span>⌄</span></button><span class="filter-summary" id="alert-summary">12 alerts</span></div><div class="panel table-panel"><table><thead><tr><th>Alert</th><th>Event type</th><th>Identity / asset</th><th>Source IP</th><th>Severity</th><th>Status</th><th></th></tr></thead><tbody id="alerts-table"></tbody></table></div></section>
+        <section class="view" id="view-investigations"><div class="page-intro"><div><p class="eyebrow">AI INVESTIGATION AGENT</p><h1>Investigation workspace</h1><p class="subcopy">Correlate evidence, understand the attack path, and make a safe decision.</p></div><span class="agent-badge"><i></i> LOCAL AI FALLBACK ACTIVE</span></div><div id="investigation-empty" class="empty-state panel"><div class="empty-orbit">◎</div><h2>Select an alert to begin</h2><p>Open Alerts, choose the account compromise seed alert, and start an investigation.</p><button class="secondary-button" data-view-target="alerts">Open alert queue</button></div><div id="investigation-detail" class="hidden"></div></section>
+        <section class="view" id="view-evidence"><div class="page-intro"><div><p class="eyebrow">EVIDENCE VIEWER</p><h1>Evidence board</h1><p class="subcopy">Machine-collected indicators supporting the current case.</p></div></div><div id="evidence-content" class="panel empty-copy">Start an investigation to populate the evidence board.</div></section>
+        <section class="view" id="view-incidents"><div class="page-intro"><div><p class="eyebrow">CASE MANAGEMENT</p><h1>Incidents</h1><p class="subcopy">Every investigation remains auditable from signal to resolution.</p></div></div><div class="panel table-panel"><table><thead><tr><th>Incident</th><th>Type</th><th>Risk</th><th>Confidence</th><th>Owner</th><th>Response</th><th>State</th></tr></thead><tbody id="incidents-table"></tbody></table></div></section>
+        <section class="view" id="view-response"><div class="page-intro"><div><p class="eyebrow">HUMAN-IN-THE-LOOP</p><h1>Response center</h1><p class="subcopy">Review and approve safe, simulated containment actions.</p></div><div class="safety-callout">🛡 All response actions are simulated</div></div><div id="response-content" class="response-layout"><div class="panel empty-copy">Start an investigation to stage recommended actions.</div></div></section>
+        <section class="view" id="view-reports"><div class="page-intro"><div><p class="eyebrow">AUDIT &amp; REPORTING</p><h1>Incident reports</h1><p class="subcopy">Generate a concise, judge-ready record of the investigation.</p></div><button class="primary-button" id="generate-report-btn" disabled>▤ Generate report</button></div><div id="report-content" class="panel empty-copy">Resolve an incident to generate its final report.</div></section>
+      </div>
+    </main>
+  </div>
+  <div id="toast" class="toast" role="status"></div>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
